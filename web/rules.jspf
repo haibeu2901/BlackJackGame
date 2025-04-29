@@ -1,0 +1,15 @@
+<%-- any content can be specified here e.g.: --%>
+<div class="rules">
+    <h3>Blackjack Rules</h3>
+    <div class="rule-content">
+        <p><strong>Objective:</strong> Get a hand value closer to 21 than the dealer without going over.</p>
+        <ul>
+            <li>Cards 2-10 are worth their face value.</li>
+            <li>Face cards (J, Q, K) are worth 10 points.</li>
+            <li>Aces are worth 11 points, unless that would make your hand bust, then they are worth 1 point.</li>
+            <li>Blackjack (an Ace and a 10-value card) pays 3:2.</li>
+            <li>Dealer must hit on 16 or less and stand on 17 or more.</li>
+            <li>If you go over 21, you lose (bust).</li>
+        </ul>
+    </div>
+</div>
