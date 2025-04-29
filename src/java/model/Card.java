@@ -53,4 +53,23 @@ public class Card {
         return rank + " of " + suit;
     }
 
+    public String getSymbol() {
+        switch (suit) {
+            case "Spades":
+                return "♠";
+            case "Clubs":
+                return "♣";
+            case "Diamonds":
+                return "♦";
+            case "Hearts":
+                return "♥";
+            default:
+                return "";
+        }
+    }
+
+    public boolean isRed() {
+        return (suit.equals("Diamonds") || suit.equals("Hearts"));
+    }
+
 }
