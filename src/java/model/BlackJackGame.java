@@ -65,6 +65,14 @@ public class BlackJackGame implements Serializable {
         this.gameStatus = gameStatus;
     }
 
+    public void placeBet(int amount) {
+        if (amount <= playerMoney && amount > 0) {
+            currentBet = amount;
+            playerMoney -= amount;
+
+        }
+    }
+
     public void startNewRound() {
         playerHand.clear();
         dealerHand.clear();
@@ -90,14 +98,6 @@ public class BlackJackGame implements Serializable {
             currentBet = 0;
         } else {
             gameStatus = GameStatus.PLAYER_TURN;
-        }
-    }
-
-    public void placeBet(int amount) {
-        if (amount <= playerMoney && amount > 0) {
-            currentBet = amount;
-            playerMoney -= amount;
-
         }
     }
 
