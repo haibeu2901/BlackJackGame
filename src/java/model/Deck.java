@@ -38,5 +38,13 @@ public class Deck {
         initialize();
         shuffle();
     }
+    
+    public Card drawCard() {
+        if (cards.isEmpty()) {
+            initialize();
+            shuffle();
+        }
+        return cards.remove(0);
+    }
 
 }
