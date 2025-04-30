@@ -70,6 +70,12 @@ public class BlackJackGame implements Serializable {
         dealerHand.clear();
         
         // Deal cards
+        playerHand.addCard(deck.drawCard());
+        dealerHand.addCard(deck.drawCard());
+        playerHand.addCard(deck.drawCard());
+        dealerHand.addCard(deck.drawCard());
+        
+        // Game logic here
         
     }
     
