@@ -66,7 +66,11 @@ public class BlackJackGame implements Serializable {
     }
     
     public void startNewRound() {
-        playerHand
+        playerHand.clear();
+        dealerHand.clear();
+        
+        // Deal cards
+        
     }
     
     public void placeBet(int amount) {
