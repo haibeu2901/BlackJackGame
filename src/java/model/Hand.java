@@ -27,4 +27,8 @@ public class Hand {
     public void clear() {
         cards.clear();
     }
+    
+    public void addCard(Card card) {
+        cards.add(card);
+    }
 }
