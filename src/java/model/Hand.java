@@ -24,4 +24,7 @@ public class Hand {
         return cards;
     }
 
+    public void clear() {
+        cards.clear();
+    }
 }
