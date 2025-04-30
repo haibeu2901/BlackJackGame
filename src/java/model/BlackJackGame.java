@@ -39,5 +39,26 @@ public class BlackJackGame implements Serializable {
             return message;
         }
     }
+    
+    private Deck deck;
+    private Hand playerHand;
+    private Hand dealerHand;
+    private int playerMoney;
+    private int currentBet;
+    private GameStatus gameStatus;
+
+    public BlackJackGame() {
+    }
+
+    public BlackJackGame(Deck deck, Hand playerHand, Hand dealerHand, int playerMoney, int currentBet, GameStatus gameStatus) {
+        this.deck = deck;
+        this.playerHand = playerHand;
+        this.dealerHand = dealerHand;
+        this.playerMoney = playerMoney;
+        this.currentBet = currentBet;
+        this.gameStatus = gameStatus;
+    }
+    
+    
 
 }
