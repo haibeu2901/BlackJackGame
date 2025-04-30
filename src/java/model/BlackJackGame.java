@@ -48,6 +48,12 @@ public class BlackJackGame implements Serializable {
     private GameStatus gameStatus;
 
     public BlackJackGame() {
+        deck = new Deck();
+        playerHand = new Hand();
+        dealerHand = new Hand();
+        playerMoney = 10000;
+        currentBet = 0;
+        gameStatus = GameStatus.BETTING;
     }
 
     public BlackJackGame(Deck deck, Hand playerHand, Hand dealerHand, int playerMoney, int currentBet, GameStatus gameStatus) {
