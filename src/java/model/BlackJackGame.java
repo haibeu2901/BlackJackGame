@@ -39,7 +39,7 @@ public class BlackJackGame implements Serializable {
             return message;
         }
     }
-    
+
     private Deck deck;
     private Hand playerHand;
     private Hand dealerHand;
@@ -64,29 +64,41 @@ public class BlackJackGame implements Serializable {
         this.currentBet = currentBet;
         this.gameStatus = gameStatus;
     }
-    
+
     public void startNewRound() {
         playerHand.clear();
         dealerHand.clear();
-        
+
         // Deal cards
         playerHand.addCard(deck.drawCard());
         dealerHand.addCard(deck.drawCard());
         playerHand.addCard(deck.drawCard());
         dealerHand.addCard(deck.drawCard());
-        
-        // Game logic here
-        
-    }
-    
-    public void placeBet(int amount) {
-        if (amount<=playerMoney && amount>0) {
-            currentBet = amount;
-            playerMoney-=amount;
-            
+
+        if (playerHand.isBlackJack()) {
+            if (dealerHand.isBlackJack()) {
+                playerMoney += currentBet; // Push - return bet
+                gameStatus = GameStatus.BOTH_BLACKJACK;
+                currentBet = 0;
+            } else {
+                playerMoney += (currentBet * 2.5); // Blackjack pays 3:2
+                gameStatus = GameStatus.PLAYER_BLACKJACK;
+                currentBet = 0;
+            }
+        } else if (dealerHand.isBlackJack()) {
+            gameStatus = GameStatus.DEALER_BLACKJACK;
+            currentBet = 0;
+        } else {
+            gameStatus = GameStatus.PLAYER_TURN;
         }
     }
-    
-    
+
+    public void placeBet(int amount) {
+        if (amount <= playerMoney && amount > 0) {
+            currentBet = amount;
+            playerMoney -= amount;
+
+        }
+    }
 
 }
