@@ -79,6 +79,18 @@ public class BlackJackGame implements Serializable {
         return (gameStatus == GameStatus.PLAYER_TURN);
     }
 
+    public boolean canBet() {
+        return gameStatus == GameStatus.BETTING
+                || gameStatus == GameStatus.PLAYER_BLACKJACK
+                || gameStatus == GameStatus.DEALER_BLACKJACK
+                || gameStatus == GameStatus.PLAYER_BUST
+                || gameStatus == GameStatus.DEALER_BUST
+                || gameStatus == GameStatus.PLAYER_WIN
+                || gameStatus == GameStatus.DEALER_WIN
+                || gameStatus == GameStatus.PUSH
+                || gameStatus == GameStatus.BOTH_BLACKJACK;
+    }
+
     public BlackJackGame() {
         deck = new Deck();
         playerHand = new Hand();
