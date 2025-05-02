@@ -145,4 +145,15 @@ public class BlackJackGame implements Serializable {
         }
     }
 
+    public void playerHit() {
+        if (gameStatus == GameStatus.PLAYER_TURN) {
+            playerHand.addCard(deck.drawCard());
+            if (playerHand.isBusted()) {
+                gameStatus = GameStatus.PLAYER_BUST;
+                currentBet = 0;
+            }
+        }
+    }
+    
+    
 }
