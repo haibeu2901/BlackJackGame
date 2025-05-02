@@ -47,6 +47,36 @@ public class BlackJackGame implements Serializable {
     private int currentBet;
     private GameStatus gameStatus;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public Hand getPlayerHand() {
+        return playerHand;
+    }
+
+    public Hand getDealerHand() {
+        return dealerHand;
+    }
+
+    public int getPlayerMoney() {
+        return playerMoney;
+    }
+
+    public int getCurrentBet() {
+        return currentBet;
+    }
+
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+    
+    
+
     public BlackJackGame() {
         deck = new Deck();
         playerHand = new Hand();
@@ -100,5 +130,7 @@ public class BlackJackGame implements Serializable {
             gameStatus = GameStatus.PLAYER_TURN;
         }
     }
+    
+    
 
 }
