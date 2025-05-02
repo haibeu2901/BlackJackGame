@@ -174,4 +174,21 @@ public class BlackJackGame implements Serializable {
 
         currentBet = 0;
     }
+
+    public void dealerPlay() {
+        // Dealer must hit until 17 or higher
+        while (dealerHand.calculateValue() < 17) {
+            dealerHand.addCard(deck.drawCard());
+        }
+
+        determineWinner();
+    }
+
+    public void playerStand() {
+        if (gameStatus == GameStatus.PLAYER_TURN) {
+            gameStatus = GameStatus.DEALER_TURN;
+        }
+
+        determineWinner();
+    }
 }
