@@ -154,6 +154,24 @@ public class BlackJackGame implements Serializable {
             }
         }
     }
-    
-    
+
+    public void determineWinner() {
+        int playerValue = playerHand.calculateValue();
+        int dealerValue = dealerHand.calculateValue();
+
+        if (dealerHand.isBusted()) {
+            gameStatus = GameStatus.DEALER_BUST;
+            playerMoney += currentBet * 2; // Win pays back betting money and win money
+        } else if (playerValue > dealerValue) {
+            gameStatus = GameStatus.PLAYER_WIN;
+            playerMoney += currentBet * 2;
+        } else if (dealerValue > playerValue) {
+            gameStatus = GameStatus.DEALER_WIN;
+        } else {
+            gameStatus = GameStatus.PUSH;
+            playerMoney += currentBet; // Push will pays back betting money
+        }
+
+        currentBet = 0;
+    }
 }
