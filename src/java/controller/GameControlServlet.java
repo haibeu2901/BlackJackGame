@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.BlackJackGame;
 
 /**
  *
@@ -43,7 +45,6 @@ public class GameControlServlet extends HttpServlet {
 //            out.println("</html>");
 //        }
 //    }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -70,7 +71,37 @@ public class GameControlServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        HttpSession session = request.getSession(true);
+        BlackJackGame game = (BlackJackGame) session.getAttribute("bjgame");
+
+        if (game == null) {
+            game = new BlackJackGame();
+            session.setAttribute("bjgame", game);
+        }
+
+        String action = request.getParameter("action");
+
+        switch (action) {
+            case "newGame":
+                game = new BlackJackGame();
+                session.setAttribute("bjgame", game);
+                break;
+            case "placeBet":
+                try {
+                    int betAmount = Integer.parseInt(request.getParameter("betAmount"));
+                    game.placeBet(betAmount);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                break;
+            default:
+                try {
+
+                } catch (Exception e) {
+                }
+        }
+
     }
 
     /**
