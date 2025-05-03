@@ -97,8 +97,8 @@ public class GameControlServlet extends HttpServlet {
                 break;
             default:
                 try {
-
                 } catch (Exception e) {
+                    System.out.println(e);
                 }
         }
 
