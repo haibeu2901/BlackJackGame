@@ -95,12 +95,19 @@ public class GameControlServlet extends HttpServlet {
                     System.out.println(e);
                 }
                 break;
+            case "hit":
+                game.playerHit();
+                break;
+            case "stand":
+                game.playerStand();
             default:
                 try {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
         }
+        
+        response.sendRedirect("game.jsp");
 
     }
 
