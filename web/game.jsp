@@ -57,6 +57,18 @@
                 </div>
             </div>
 
+            <div class="hand">
+                <h2>Your Hand (${game.playerHand.calculateValue()})</h2>
+                <div class="cards">
+                    <c:forEach var="card" items="${game.playerHand.cards}">
+                        <div class="card ${card.red ? 'red' : ''}">
+                            <div class="card-rank">${card.rank}</div>
+                            <div class="card-symbol">${card.symbol}</div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+
             <%@include file="rules.jspf" %>
         </div>
     </body>
