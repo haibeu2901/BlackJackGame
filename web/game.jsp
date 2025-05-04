@@ -26,6 +26,13 @@
                 ${game.statusMessage}
             </div>
 
+            <div class="money">
+                Your Money: <span>$${game.playerMoney}</span>
+                <c:if test="${game.currentBet > 0}">
+                    | Current Bet: <span>$${game.currentBet}</span>
+                </c:if>
+            </div>
+
             <%@include file="rules.jspf" %>
         </div>
     </body>

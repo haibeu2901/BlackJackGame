@@ -38,3 +38,13 @@ h1 {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
+
+.money {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.money span {
+    color: gold;
+    font-weight: bold;
+}
