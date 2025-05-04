@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Blackjack Game</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="container">
