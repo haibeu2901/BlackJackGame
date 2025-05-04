@@ -22,6 +22,10 @@
                 <c:redirect url="GameControl?action=newGame" />
             </c:if>
 
+            <div class="status">
+                ${game.statusMessage}
+            </div>
+
             <%@include file="rules.jspf" %>
         </div>
     </body>
