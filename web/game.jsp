@@ -16,8 +16,11 @@
     <body>
         <div class="container">
             <h1>Blackjack</h1>
-            
-            
+
+            <c:set var="game" value="${sessionScope.bjgame}" />
+            <c:if test="${empty game}">
+                <c:redirect url="GameControl?action=newGame" />
+            </c:if>
 
             <%@include file="rules.jspf" %>
         </div>

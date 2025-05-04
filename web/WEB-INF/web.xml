@@ -6,7 +6,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>GameControlServlet</servlet-name>
-        <url-pattern>/GameControlServlet</url-pattern>
+        <url-pattern>/GameControl</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
