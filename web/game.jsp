@@ -33,6 +33,30 @@
                 </c:if>
             </div>
 
+            <div class="hand">
+                <h2>Dealer's Hand (${game.playerTurn && game.dealerHand.size() > 0 ? game.dealerHand.cards[0].value : game.dealerHand.calculateValue()})</h2>
+                <div class="cards">
+                    <c:if test="${not empty game.dealerHand.cards}">
+                        <c:forEach var="card" items="${game.dealerHand.cards}" varStatus="status">
+                            <c:choose>
+                                <c:when test="${status.index == 1 && game.playerTurn}">
+                                    <div class="card hidden">
+                                        <div class="card-rank">?</div>
+                                        <div class="card-symbol">?</div>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="card ${card.red ? 'red' : ''}">
+                                        <div class="card-rank">${card.rank}</div>
+                                        <div class="card-symbol">${card.symbol}</div>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </c:if>
+                </div>
+            </div>
+
             <%@include file="rules.jspf" %>
         </div>
     </body>
