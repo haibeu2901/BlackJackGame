@@ -4,22 +4,22 @@
     Author     : beu29
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
         <title>Blackjack Game</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/blackjack.css">
     </head>
     <body>
         <div class="container">
             <h1>Blackjack</h1>
 
-            <c:set var="game" value="${sessionScope.bjgame}" />
+            <c:set var="game" value="${sessionScope.blackjackGame}" />
             <c:if test="${empty game}">
-                <c:redirect url="GameControl?action=newGame" />
+                <c:redirect url="blackjack?action=newGame" />
             </c:if>
 
             <div class="status">
@@ -95,9 +95,9 @@
                     <input type="hidden" name="action" value="newGame">
                     <button type="submit" class="btn">New Game</button>
                 </form>
-            </div> 
+            </div>
 
-            <%@include file="rules.jspf" %>
+            <jsp:include page="rules.jsp" />
         </div>
     </body>
 </html>
