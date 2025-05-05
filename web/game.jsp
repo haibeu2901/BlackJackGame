@@ -97,7 +97,7 @@
                 </form>
             </div>
 
-            <jsp:include page="rules.jsp" />
+            <jsp:include page="rules.jspf" />
         </div>
     </body>
 </html>
