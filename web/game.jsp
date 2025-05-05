@@ -69,6 +69,34 @@
                 </div>
             </div>
 
+            <div class="controls">
+                <c:choose>
+                    <c:when test="${game.canBet()}">
+                        <form action="blackjack" method="post">
+                            <input type="hidden" name="action" value="placeBet">
+                            <input type="number" class="bet-input" name="betAmount" min="1" max="${game.playerMoney}" value="10" required>
+                            <button type="submit" class="btn">Place Bet</button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <form action="blackjack" method="post" style="display: inline-block;">
+                            <input type="hidden" name="action" value="hit">
+                            <button type="submit" class="btn" ${game.playerTurn ? '' : 'disabled'}>Hit</button>
+                        </form>
+
+                        <form action="blackjack" method="post" style="display: inline-block;">
+                            <input type="hidden" name="action" value="stand">
+                            <button type="submit" class="btn" ${game.playerTurn ? '' : 'disabled'}>Stand</button>
+                        </form>
+                    </c:otherwise>
+                </c:choose>
+
+                <form action="blackjack" method="post" style="display: inline-block;">
+                    <input type="hidden" name="action" value="newGame">
+                    <button type="submit" class="btn">New Game</button>
+                </form>
+            </div> 
+
             <%@include file="rules.jspf" %>
         </div>
     </body>
