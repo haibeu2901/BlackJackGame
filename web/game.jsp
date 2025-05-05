@@ -11,7 +11,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Blackjack Game</title>
-        <link rel="stylesheet" href="css/blackjack.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="container">
