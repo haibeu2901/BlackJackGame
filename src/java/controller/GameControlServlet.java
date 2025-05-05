@@ -73,40 +73,31 @@ public class GameControlServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession(true);
-        BlackJackGame game = (BlackJackGame) session.getAttribute("bjgame");
+        BlackJackGame game = (BlackJackGame) session.getAttribute("blackjackGame");
 
         if (game == null) {
             game = new BlackJackGame();
-            session.setAttribute("bjgame", game);
+            session.setAttribute("blackjackGame", game);
         }
 
         String action = request.getParameter("action");
 
-        switch (action) {
-            case "newGame":
-                game = new BlackJackGame();
-                session.setAttribute("bjgame", game);
-                break;
-            case "placeBet":
-                try {
-                    int betAmount = Integer.parseInt(request.getParameter("betAmount"));
-                    game.placeBet(betAmount);
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
-                break;
-            case "hit":
-                game.playerHit();
-                break;
-            case "stand":
-                game.playerStand();
-            default:
-                try {
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
+        if ("newGame".equals(action)) {
+            game = new BlackJackGame();
+            session.setAttribute("blackjackGame", game);
+        } else if ("placeBet".equals(action)) {
+            try {
+                int betAmount = Integer.parseInt(request.getParameter("betAmount"));
+                game.placeBet(betAmount);
+            } catch (NumberFormatException e) {
+                // Handle invalid bet amount
+            }
+        } else if ("hit".equals(action)) {
+            game.playerHit();
+        } else if ("stand".equals(action)) {
+            game.playerStand();
         }
-        
+
         response.sendRedirect("game.jsp");
 
     }
