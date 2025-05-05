@@ -148,3 +148,26 @@ h1 {
     color: gold;
     font-weight: bold;
 }
+
+.rules {
+    margin-top: 40px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.rules h3 {
+    color: gold;
+    margin: 0;
+    cursor: pointer;
+}
+
+.rule-content {
+    display: none;
+    padding: 10px 0;
+}
+
+.rules:hover .rule-content {
+    display: block;
+}
