@@ -102,3 +102,49 @@ h1 {
     left: 5px;
     font-size: 1.2em;
 }
+
+.controls {
+    margin: 20px 0;
+}
+
+.btn {
+    background-color: gold;
+    color: #236641;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffcc33;
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.bet-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    width: 100px;
+}
+
+.money {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.money span {
+    color: gold;
+    font-weight: bold;
+}
